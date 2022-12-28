@@ -21,16 +21,16 @@
     --beamDelay: 0;
 
     animation-name: beam-move;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
     animation-delay: var(--beamDelay);
 }
 @keyframes beam-move {
-    0% {
+    0%, 25%{
         left: var(--beamStartLeft);
         top: var(--beamStartTop);
     }
-    100% {
+    12.5% {
         left: var(--beamEndLeft);
         top: var(--beamEndTop);
     }
