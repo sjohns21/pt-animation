@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <Dot/>
-
+      <Beam/>
       <div style={{display: 'flex', marginTop: 100,}}>
         <div className={'dot'}/>
         <div className={'dot'}/>
@@ -18,7 +18,8 @@ function App() {
 function Dot() {
   return <div className={'dot'}/>
 }
-function Beam() {
-  return <div style={{position: "absolute"}}/>
+type coord = [number, number]
+function Beam({from, to}: {from?: coord, to?: coord}) {
+  return <div className={'beam'}/>
 }
 export default App;

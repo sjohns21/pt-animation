@@ -7,3 +7,25 @@
     background: black;
     margin-right: 10px;
 }
+
+.beam {
+    width: 5px;
+    height: 5px;
+    background: black;
+    position: absolute;
+
+    --beamStart: 0;
+    --beamEnd: 100px;
+
+    animation-name: beam-move;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+@keyframes beam-move {
+    0% {
+        top: var(--beamStart);
+    }
+    100% {
+        top: var(--beamEnd);
+    }
+}
