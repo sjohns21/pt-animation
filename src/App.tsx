@@ -23,6 +23,7 @@ function App() {
             <>
               <Dot loc={sal} />
               <Beam from={sal} to={sbl} delay={0} />
+              <Beam from={sbl} to={sal} delay={1} />
               <Dot loc={sbl} />
             </>
           );
