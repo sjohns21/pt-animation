@@ -4,13 +4,29 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Dot loc={teachLoc} />
-      {studentLocs.map((sl, i) => (
-        <>
-          <Beam from={teachLoc} to={sl} delay={i} />
-          <Dot loc={sl} />
-        </>
-      ))}
+      <div style={{ position: "relative" }}>
+        <Dot loc={teachLoc} />
+        {studentLocs.map((sl, i) => (
+          <>
+            <Beam from={teachLoc} to={sl} delay={i} />
+            <Dot loc={sl} />
+          </>
+        ))}
+      </div>
+      <div style={{ position: "relative", top: 200 }}>
+        <Dot loc={teachLoc} />
+        {studentLocs.map((sl, i) => {
+          const sal = sl;
+          const sbl: Loc = [sal[0], sal[1] + 100];
+          return (
+            <>
+              <Dot loc={sal} />
+              <Beam from={sal} to={sbl} delay={0} />
+              <Dot loc={sbl} />
+            </>
+          );
+        })}
+      </div>
     </div>
   );
 }
