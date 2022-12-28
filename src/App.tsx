@@ -8,8 +8,9 @@ function App() {
         <Dot loc={teachLoc} />
         {studentLocs.map((sl, i) => (
           <>
-            <Beam from={teachLoc} to={sl} delay={i} />
+            <Beam from={teachLoc} to={sl} delay={i * 2} />
             <Dot loc={sl} />
+            <Beam from={sl} to={teachLoc} delay={i * 2 + 1} />
           </>
         ))}
       </div>
