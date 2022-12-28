@@ -8,7 +8,7 @@ function App() {
         <Dot loc={teachLoc} />
         {studentLocs.map((sl, i) => (
           <>
-            <Beam from={teachLoc} to={sl} delay={i} />
+            <Beam from={teachLoc} to={sl} delay={i} variant={"before"} />
             <Dot loc={sl} />
           </>
         ))}
@@ -21,8 +21,7 @@ function App() {
           return (
             <>
               <Dot loc={sal} />
-              <Beam from={sal} to={sbl} delay={0} />
-              <Beam from={sbl} to={sal} delay={1} />
+              <Beam from={sal} to={sbl} delay={0} variant={"after"} />
               <Dot loc={sbl} />
             </>
           );
@@ -39,7 +38,17 @@ function Dot({ loc }: { loc: Loc }) {
   return <div style={{ left: loc[0], top: loc[1] }} className={"dot"} />;
 }
 type Loc = [number, number];
-function Beam({ from, to, delay }: { from: Loc; to: Loc; delay: number }) {
+function Beam({
+  from,
+  to,
+  delay,
+  variant,
+}: {
+  from: Loc;
+  to: Loc;
+  delay: number;
+  variant: "before" | "after";
+}) {
   return (
     <div
       style={
@@ -51,7 +60,7 @@ function Beam({ from, to, delay }: { from: Loc; to: Loc; delay: number }) {
           "--beamDelay": delay + "s",
         } as any
       }
-      className={"beam"}
+      className={`beam ${variant}`}
     />
   );
 }

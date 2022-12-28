@@ -2,36 +2,54 @@
   text-align: center;
 }
 .dot {
-    width: 50px;
-    height: 50px;
-    background: black;
-    position: absolute;
+  width: 50px;
+  height: 50px;
+  background: black;
+  position: absolute;
 }
 
 .beam {
-    width: 5px;
-    height: 5px;
-    background: black;
-    position: absolute;
+  width: 5px;
+  height: 5px;
+  background: black;
+  position: absolute;
 
-    --beamStartLeft: 0;
-    --beamStartTop: 0;
-    --beamEndLeft: 0;
-    --beamEndTop: 0;
-    --beamDelay: 0;
+  --beamStartLeft: 0;
+  --beamStartTop: 0;
+  --beamEndLeft: 0;
+  --beamEndTop: 0;
+  --beamDelay: 0;
 
-    animation-name: beam-move;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    animation-delay: var(--beamDelay);
+  animation-iteration-count: infinite;
+  animation-delay: var(--beamDelay);
 }
-@keyframes beam-move {
-    0%, 25%{
-        left: var(--beamStartLeft);
-        top: var(--beamStartTop);
-    }
-    12.5% {
-        left: var(--beamEndLeft);
-        top: var(--beamEndTop);
-    }
+.beam.before {
+  animation-duration: 4s;
+  animation-name: beam-move-before;
+}
+.beam.after {
+  animation-duration: 1s;
+  animation-name: beam-move-after;
+}
+@keyframes beam-move-before {
+  0%,
+  25% {
+    left: var(--beamStartLeft);
+    top: var(--beamStartTop);
+  }
+  12.5% {
+    left: var(--beamEndLeft);
+    top: var(--beamEndTop);
+  }
+}
+@keyframes beam-move-after {
+  0%,
+  100% {
+    left: var(--beamStartLeft);
+    top: var(--beamStartTop);
+  }
+  50% {
+    left: var(--beamEndLeft);
+    top: var(--beamEndTop);
+  }
 }
