@@ -26,7 +26,12 @@ function Beam({ from, to }: { from: Loc; to: Loc }) {
   return (
     <div
       style={
-        { "--beamStart": from[1] + "px", "--beamEnd": to[1] + "px" } as any
+        {
+          "--beamStartLeft": from[0] + "px",
+          "--beamStartTop": from[1] + "px",
+          "--beamEndLeft": to[0] + "px",
+          "--beamEndTop": to[1] + "px",
+        } as any
       }
       className={"beam"}
     />

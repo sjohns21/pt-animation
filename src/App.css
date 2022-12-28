@@ -14,8 +14,10 @@
     background: black;
     position: absolute;
 
-    --beamStart: 0;
-    --beamEnd: 100px;
+    --beamStartLeft: 0;
+    --beamStartTop: 0;
+    --beamEndLeft: 0;
+    --beamEndTop: 0;
 
     animation-name: beam-move;
     animation-duration: 2s;
@@ -23,9 +25,11 @@
 }
 @keyframes beam-move {
     0% {
-        top: var(--beamStart);
+        left: var(--beamStartLeft);
+        top: var(--beamStartTop);
     }
     100% {
-        top: var(--beamEnd);
+        left: var(--beamEndLeft);
+        top: var(--beamEndTop);
     }
 }
