@@ -18,10 +18,12 @@
     --beamStartTop: 0;
     --beamEndLeft: 0;
     --beamEndTop: 0;
+    --beamDelay: 0;
 
     animation-name: beam-move;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-delay: var(--beamDelay);
 }
 @keyframes beam-move {
     0% {

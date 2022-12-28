@@ -5,9 +5,9 @@ function App() {
   return (
     <div className="App">
       <Dot loc={teachLoc} />
-      {studentLocs.map((sl) => (
+      {studentLocs.map((sl, i) => (
         <>
-          <Beam from={teachLoc} to={sl} />
+          <Beam from={teachLoc} to={sl} delay={i} />
           <Dot loc={sl} />
         </>
       ))}
@@ -22,7 +22,7 @@ function Dot({ loc }: { loc: Loc }) {
   return <div style={{ left: loc[0], top: loc[1] }} className={"dot"} />;
 }
 type Loc = [number, number];
-function Beam({ from, to }: { from: Loc; to: Loc }) {
+function Beam({ from, to, delay }: { from: Loc; to: Loc; delay: number }) {
   return (
     <div
       style={
@@ -31,6 +31,7 @@ function Beam({ from, to }: { from: Loc; to: Loc }) {
           "--beamStartTop": from[1] + "px",
           "--beamEndLeft": to[0] + "px",
           "--beamEndTop": to[1] + "px",
+          "--beamDelay": delay + "s",
         } as any
       }
       className={"beam"}
